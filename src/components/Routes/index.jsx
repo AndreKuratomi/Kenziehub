@@ -4,7 +4,7 @@ import SignUp from "./components/pages/SignUp";
 import Login from "./components/pages/Login";
 import Dashboard from "./components/pages/Dashboard";
 
-export const Routes = () => {
+function Routes() {
   return (
     <Switch>
       <Route exact path="/">
@@ -21,4 +21,5 @@ export const Routes = () => {
       </Route>
     </Switch>
   );
-};
+}
+export default Routes;
