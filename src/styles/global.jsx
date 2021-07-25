@@ -30,9 +30,11 @@ export default createGlobalStyle`
     }
 
     button {
-        color: var(--yellow);
         cursor: pointer;
-        text-decoration: underline;
+        & hover {
+            color: var(--yellow);
+            text-decoration: underline;
+        }
     }
 
     a {
