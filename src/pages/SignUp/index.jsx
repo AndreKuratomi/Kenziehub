@@ -2,16 +2,14 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
+
+import api from "../../services/api";
 
 // import
 
-function SignUp() {
+function SignUp({ authenticated }) {
   const formSchema = yup.object().shape({
-    name: yup
-      .string()
-      .required("Campo obrigatório!")
-      .matches(/^[a-zA-Z]+$/, "Preencher apenas com letras!"),
     email: yup.string().email().required("Campo obrigatório!"),
     password: yup
       .string()
@@ -23,8 +21,12 @@ function SignUp() {
       ),
     confirmPassword: yup
       .string()
-      .required()
-      .oneOf([yup.ref("password"), "As senhas devem ser iguais!"]),
+      .required("Campo obrigatório!")
+      .oneOf([yup.ref("password")], "As senhas devem ser iguais!"),
+    name: yup
+      .string()
+      .required("Campo obrigatório!")
+      .matches(/^[a-zA-Z]+$/, "Preencher apenas com letras!"),
     bio: yup.string().required("Campo obrigatório!"),
     contact: yup.string().required("Campo obrigatório!"),
     // course_modules: yup.select().option().required("Selecionar um módulo!"),
@@ -36,25 +38,39 @@ function SignUp() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const history1 = useHistory();
+
+  const onSubmit = ({ email, password, name, bio, contact, course_module }) => {
+    const newUserInfo = { email, password, name, bio, contact, course_module };
+    api
+      .post("/users", newUserInfo)
+      .then((_) => {
+        history1.push("/login");
+        console.log(_);
+      })
+      .catch((err) => console.log(err));
   };
+
+  if (authenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <>
       <h1>Faça o cadastro a seguir:</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input placeholder="Nome" {...register("name")} />
-        {errors.name?.message}
         <input placeholder="Email" {...register("email")} />
         {errors.email?.message}
         <input type="password" placeholder="Senha" {...register("password")} />
         {errors.password?.message}
         <input
           type="password"
-          placeholder="confirmPassword"
+          placeholder="Confirmar senha"
           {...register("confirmPassword")}
         />
+        {errors.confirmPassword?.message}
+        <input placeholder="Nome" {...register("name")} />
+        {errors.name?.message}
         <input placeholder="Fale um pouco sobre você." {...register("bio")} />
         {errors.bio?.message}
         <input

@@ -2,11 +2,13 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
+
+import api from "../../services/api";
 
 // import
 
-function Login() {
+function Login({ authenticated, setAuthenticated }) {
   const formSchema = yup.object().shape({
     email: yup.string().email().required("Campo obrigatório!"),
     password: yup
@@ -25,9 +27,26 @@ function Login() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
 
+  const history2 = useHistory();
+
   const onSubmit = (data) => {
-    console.log(data);
+    api
+      .post("/sessions", data)
+      .then((response) => {
+        const { token } = response.data;
+
+        localStorage.setItem("@Kenziehub:token", JSON.stringify(token));
+
+        setAuthenticated(true);
+
+        return history2.push("/dashboard");
+      })
+      .catch((err) => console.log(err));
   };
+
+  if (authenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <>
@@ -41,7 +60,7 @@ function Login() {
       </form>
       <p>
         Ainda não tem cadastro? Então vamos ao
-        <Link to="/signup">Cadastro</Link>.
+        <Link to="/signup"> Cadastro</Link>.
       </p>
     </>
   );

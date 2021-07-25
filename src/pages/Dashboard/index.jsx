@@ -1,22 +1,28 @@
 import { useState } from "react";
+import { Redirect } from "react-router-dom";
 
 import Cards from "../../components/Cards";
 
-function Dashboard() {
-  const [value, setValue] = useState("");
-  const [cardPlace, setCardPlace] = useState([]);
+function Dashboard({ authenticated }) {
+  if (!authenticated) {
+    return <Redirect to="/login" />;
+  }
 
-  const addCards = (item) => {
-    setCardPlace(...cardPlace, item);
-  };
+  // const [value, setValue] = useState("");
+  // const [cardPlace, setCardPlace] = useState([]);
 
-  const handleCardplace = (clickedItem) => {
-    cardPlace.filter((elt) => elt !== clickedItem);
-  };
+  // const addCards = (item) => {
+  //   setCardPlace(...cardPlace, item);
+  // };
+
+  // const handleCardplace = (clickedItem) => {
+  //   cardPlace.filter((elt) => elt !== clickedItem);
+  // };
 
   return (
     <>
-      <section>
+      <h1>Dashboard!</h1>
+      {/* <section>
         <input
           placeholder="Cadastre suas tecnologias"
           value={value}
@@ -24,7 +30,7 @@ function Dashboard() {
         />
         <button onClick={() => addCards(value)}>Adicionar</button>
         <Cards cardPlace={cardPlace} handleCardplace={handleCardplace} />
-      </section>
+      </section> */}
     </>
   );
 }

@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 // import { Container } from "./styles";
 
-function Home() {
+function Home({ authenticated }) {
+  if (authenticated) {
+    return <Redirect to="/dashboard" />;
+  }
+
   return (
     <>
       <h1>KenzieHub!</h1>
