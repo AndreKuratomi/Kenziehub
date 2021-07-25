@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import Cards from "../../Cards";
+import Cards from "../../components/Cards";
 
-export const Dashboard = () => {
+function Dashboard() {
   const [value, setValue] = useState("");
   const [cardPlace, setCardPlace] = useState([]);
 
@@ -27,4 +27,6 @@ export const Dashboard = () => {
       </section>
     </>
   );
-};
+}
+
+export default Dashboard;
