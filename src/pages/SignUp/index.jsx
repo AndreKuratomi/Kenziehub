@@ -21,7 +21,10 @@ function SignUp() {
         /^((?=.*[!@#$%^&*()\-_=+{};:,<.>?]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
         "Sua senha deve ter ao menos 1 letra maiúscula, 1 minúscula, 1 número e 1 caractere especial."
       ),
-    //   confirmPassword: yup.string().required().oneOf([yup.ref("password"), ]),
+    confirmPassword: yup
+      .string()
+      .required()
+      .oneOf([yup.ref("password"), "As senhas devem ser iguais!"]),
     bio: yup.string().required("Campo obrigatório!"),
     contact: yup.string().required("Campo obrigatório!"),
     // course_modules: yup.select().option().required("Selecionar um módulo!"),
@@ -47,11 +50,11 @@ function SignUp() {
         {errors.email?.message}
         <input type="password" placeholder="Senha" {...register("password")} />
         {errors.password?.message}
-        {/* <input
+        <input
           type="password"
           placeholder="confirmPassword"
           {...register("confirmPassword")}
-        /> */}
+        />
         <input placeholder="Fale um pouco sobre você." {...register("bio")} />
         {errors.bio?.message}
         <input
