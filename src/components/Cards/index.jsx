@@ -1,4 +1,4 @@
-export const Cards = ({ cardPlace, handleCardplace }) => {
+function Cards({ cardPlace, handleCardplace }) {
   return (
     <ul>
       {cardPlace &&
@@ -11,4 +11,6 @@ export const Cards = ({ cardPlace, handleCardplace }) => {
         ))}
     </ul>
   );
-};
+}
+
+export default Cards;

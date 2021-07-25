@@ -2,11 +2,11 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // import
 
-export const Login = () => {
+function Login() {
   const formSchema = yup.object().shape({
     email: yup.string().email().required("Campo obrigatório!"),
     password: yup
@@ -40,8 +40,11 @@ export const Login = () => {
         <button type="submit">Logar</button>
       </form>
       <p>
-        Ainda não tem cadastro? Então vamos ao <Link to="/">Cadastro</Link>.
+        Ainda não tem cadastro? Então vamos ao
+        <Link to="/signup">Cadastro</Link>.
       </p>
     </>
   );
-};
+}
+
+export default Login;

@@ -1,13 +1,17 @@
 import { Switch, Route } from "react-router-dom";
 
-import SignUp from "./components/pages/SignUp";
-import Login from "./components/pages/Login";
-import Dashboard from "./components/pages/Dashboard";
+import Home from "../pages/Home";
+import SignUp from "../pages/SignUp";
+import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
 
 function Routes() {
   return (
     <Switch>
       <Route exact path="/">
+        <Home />
+      </Route>
+      <Route path="/signup">
         <SignUp />
       </Route>
       <Route path="/login">
@@ -22,4 +26,5 @@ function Routes() {
     </Switch>
   );
 }
+
 export default Routes;

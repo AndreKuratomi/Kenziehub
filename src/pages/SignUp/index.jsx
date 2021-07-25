@@ -2,11 +2,11 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // import
 
-export const SignUp = () => {
+function SignUp() {
   const formSchema = yup.object().shape({
     name: yup
       .string()
@@ -24,7 +24,7 @@ export const SignUp = () => {
     //   confirmPassword: yup.string().required().oneOf([yup.ref("password"), ]),
     bio: yup.string().required("Campo obrigatório!"),
     contact: yup.string().required("Campo obrigatório!"),
-    course_modules: yup.select().option().required("Selecionar um módulo!"),
+    // course_modules: yup.select().option().required("Selecionar um módulo!"),
   });
 
   const {
@@ -52,7 +52,7 @@ export const SignUp = () => {
           placeholder="confirmPassword"
           {...register("confirmPassword")}
         /> */}
-        <iput placeholder="Fale um pouco sobre você." {...register("bio")} />
+        <input placeholder="Fale um pouco sobre você." {...register("bio")} />
         {errors.bio?.message}
         <input
           placeholder="Escreva uma forma de contato."
@@ -60,11 +60,13 @@ export const SignUp = () => {
         />
         {errors.contact?.message}
         <select {...register("course_module")}>
-          <option value="" selected>
+          {/* <option value="" selected>
             Selecione um módulo
-          </option>
+          </option> */}
           <option value="">Primeiro módulo (Introdução ao Frontend)</option>
-          <option value="">Segundo módulo (Frontend Avançado)</option>
+          <option value="" selected>
+            Segundo módulo (Frontend Avançado)
+          </option>
           <option value="">Terceiro módulo (Introdução ao Backend)</option>
           <option value="">Quarto módulo (Backend Avançado)</option>
         </select>
@@ -75,4 +77,6 @@ export const SignUp = () => {
       </p>
     </>
   );
-};
+}
+
+export default SignUp;
