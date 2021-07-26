@@ -29,7 +29,7 @@ function SignUp({ authenticated }) {
       .matches(/^[a-zA-Z]+$/, "Preencher apenas com letras!"),
     bio: yup.string().required("Campo obrigatório!"),
     contact: yup.string().required("Campo obrigatório!"),
-    // course_modules: yup.select().option().required("Selecionar um módulo!"),
+    course_module: yup.string().required("Campo obrigatório!"),
   });
 
   const {
@@ -41,12 +41,13 @@ function SignUp({ authenticated }) {
   const history1 = useHistory();
 
   const onSubmit = ({ email, password, name, bio, contact, course_module }) => {
+    // console.log(data);
     const newUserInfo = { email, password, name, bio, contact, course_module };
     api
       .post("/users", newUserInfo)
-      .then((_) => {
+      .then((response) => {
+        console.log(response);
         history1.push("/login");
-        console.log(_);
       })
       .catch((err) => console.log(err));
   };
@@ -79,15 +80,18 @@ function SignUp({ authenticated }) {
         />
         {errors.contact?.message}
         <select {...register("course_module")}>
-          {/* <option value="" selected>
-            Selecione um módulo
-          </option> */}
-          <option value="">Primeiro módulo (Introdução ao Frontend)</option>
-          <option value="" selected>
+          <option value="Primeiro módulo (Introdução ao Frontend)">
+            Primeiro módulo (Introdução ao Frontend)
+          </option>
+          <option value="Segundo módulo (Frontend Avançado)">
             Segundo módulo (Frontend Avançado)
           </option>
-          <option value="">Terceiro módulo (Introdução ao Backend)</option>
-          <option value="">Quarto módulo (Backend Avançado)</option>
+          <option value="Terceiro módulo (Introdução ao Backend)">
+            Terceiro módulo (Introdução ao Backend)
+          </option>
+          <option value="Quarto módulo (Backend Avançado)">
+            Quarto módulo (Backend Avançado)
+          </option>
         </select>
         <button type="submit">Submeter</button>
       </form>
