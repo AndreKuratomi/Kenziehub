@@ -1,5 +1,6 @@
 import { Link, Redirect } from "react-router-dom";
-// import { Container } from "./styles";
+
+import { Container, Button1 } from "./styles";
 
 function Home({ authenticated }) {
   if (authenticated) {
@@ -7,20 +8,20 @@ function Home({ authenticated }) {
   }
 
   return (
-    <>
+    <Container>
       <h1>KenzieHub!</h1>
       <p>
         Organize suas tecnologias aprendidas conforme o módulo em que estiver.
       </p>
       <section>
-        <button>
+        <Button1>
           <Link to="/signup">Cadastre-se</Link>
-        </button>
-        <button>
+        </Button1>
+        <Button1>
           <Link to="/signup">Login</Link>
-        </button>
+        </Button1>
       </section>
-    </>
+    </Container>
   );
 }
 

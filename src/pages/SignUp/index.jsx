@@ -6,7 +6,7 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 
 import api from "../../services/api";
 
-// import
+import { Container, Form, Input, Select, Div } from "./styles";
 
 function SignUp({ authenticated }) {
   const formSchema = yup.object().shape({
@@ -41,7 +41,6 @@ function SignUp({ authenticated }) {
   const history1 = useHistory();
 
   const onSubmit = ({ email, password, name, bio, contact, course_module }) => {
-    // console.log(data);
     const newUserInfo = { email, password, name, bio, contact, course_module };
     api
       .post("/users", newUserInfo)
@@ -57,29 +56,29 @@ function SignUp({ authenticated }) {
   }
 
   return (
-    <>
+    <Container>
       <h1>Faça o cadastro a seguir:</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input placeholder="Email" {...register("email")} />
-        {errors.email?.message}
-        <input type="password" placeholder="Senha" {...register("password")} />
-        {errors.password?.message}
-        <input
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Input placeholder="Email" {...register("email")} />
+        {errors.email && <Div>{errors.email.message}</Div>}
+        <Input type="password" placeholder="Senha" {...register("password")} />
+        {errors.password && <Div>{errors.password.message}</Div>}
+        <Input
           type="password"
           placeholder="Confirmar senha"
           {...register("confirmPassword")}
         />
-        {errors.confirmPassword?.message}
-        <input placeholder="Nome" {...register("name")} />
-        {errors.name?.message}
-        <input placeholder="Fale um pouco sobre você." {...register("bio")} />
-        {errors.bio?.message}
-        <input
+        {errors.confirmPassword && <Div>{errors.confirmPassword.message}</Div>}
+        <Input placeholder="Nome" {...register("name")} />
+        {errors.name && <Div>{errors.name.message}</Div>}
+        <Input placeholder="Fale um pouco sobre você." {...register("bio")} />
+        {errors.bio && <Div>{errors.bio.message}</Div>}
+        <Input
           placeholder="Escreva uma forma de contato."
           {...register("contact")}
         />
-        {errors.contact?.message}
-        <select {...register("course_module")}>
+        {errors.contact && <Div>{errors.contact.message}</Div>}
+        <Select {...register("course_module")}>
           <option value="Primeiro módulo (Introdução ao Frontend)">
             Primeiro módulo (Introdução ao Frontend)
           </option>
@@ -92,13 +91,13 @@ function SignUp({ authenticated }) {
           <option value="Quarto módulo (Backend Avançado)">
             Quarto módulo (Backend Avançado)
           </option>
-        </select>
+        </Select>
         <button type="submit">Submeter</button>
-      </form>
+      </Form>
       <p>
         Já tem cadastro? Então vamos ao <Link to="/login">Login</Link>!
       </p>
-    </>
+    </Container>
   );
 }
 

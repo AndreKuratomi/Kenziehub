@@ -6,7 +6,7 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 
 import api from "../../services/api";
 
-// import
+import { Container, Form, Input, Select, Div } from "./styles";
 
 function Login({ authenticated, setAuthenticated }) {
   const formSchema = yup.object().shape({
@@ -49,20 +49,20 @@ function Login({ authenticated, setAuthenticated }) {
   }
 
   return (
-    <>
+    <Container>
       <h1>Faça o login a seguir:</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input placeholder="Email" {...register("email")} />
-        {errors.email?.message}
-        <input type="password" placeholder="Senha" {...register("password")} />
-        {errors.password?.message}
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Input placeholder="Email" {...register("email")} />
+        {errors.email && <Div>{errors.email.message}</Div>}
+        <Input type="password" placeholder="Senha" {...register("password")} />
+        {errors.password && <Div>{errors.password.message}</Div>}
         <button type="submit">Logar</button>
-      </form>
+      </Form>
       <p>
         Ainda não tem cadastro? Então vamos ao
         <Link to="/signup"> Cadastro</Link>.
       </p>
-    </>
+    </Container>
   );
 }
 
