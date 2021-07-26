@@ -4,8 +4,8 @@ function Cards({ cardPlace, handleCardplace }) {
       {cardPlace &&
         cardPlace.map((elt, index) => (
           <li key={index}>
-            <h3>Tecnologia</h3>
-            <p>{elt}</p>
+            {/* <h3>{title}</h3>
+            <p>{status}</p> */}
             <button onClick={handleCardplace(elt)}>Deletar</button>
           </li>
         ))}
