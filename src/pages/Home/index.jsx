@@ -18,7 +18,7 @@ function Home({ authenticated }) {
           <Link to="/signup">Cadastre-se</Link>
         </Button1>
         <Button1>
-          <Link to="/signup">Login</Link>
+          <Link to="/login">Login</Link>
         </Button1>
       </section>
     </Container>
