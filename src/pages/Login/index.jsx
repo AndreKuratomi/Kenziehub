@@ -51,9 +51,9 @@ function Login({ authenticated, setAuthenticated }) {
       );
   };
 
-  // if (authenticated) {
-  //   return <Redirect to="/dashboard" />;
-  // }
+  if (authenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <Container>
