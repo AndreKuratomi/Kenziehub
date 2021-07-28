@@ -7,6 +7,7 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 import api from "../../services/api";
 
 import { Container, Form, Input, Select, Div } from "./styles";
+import { toast } from "react-toastify";
 
 function SignUp({ authenticated }) {
   const formSchema = yup.object().shape({
@@ -45,10 +46,12 @@ function SignUp({ authenticated }) {
     api
       .post("/users", newUserInfo)
       .then((response) => {
-        console.log(response);
+        toast.success("Cadastro feito com sucesso!");
         history1.push("/login");
       })
-      .catch((err) => console.log(err));
+      .catch((err) =>
+        toast.error("Erro ao cadastrar. Verifique os dados preenchidos.")
+      );
   };
 
   if (authenticated) {
