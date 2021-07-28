@@ -27,3 +27,8 @@ export const Button = styled.button`
   border-bottom-left-radius: 0;
   padding: 0.6rem;
 `;
+
+export const ButtonLogout = styled.button`
+  border-radius: 1rem;
+  padding: 0.6rem;
+`;
