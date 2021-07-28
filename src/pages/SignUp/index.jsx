@@ -50,7 +50,9 @@ function SignUp({ authenticated }) {
         history1.push("/login");
       })
       .catch((err) =>
-        toast.error("Erro ao cadastrar. Verifique os dados preenchidos.")
+        toast.error(
+          "Erro ao cadastrar. Email já cadastrado ou falha na conexão."
+        )
       );
   };
 

@@ -47,7 +47,9 @@ function Login({ authenticated, setAuthenticated }) {
         return history2.push("/dashboard");
       })
       .catch((err) =>
-        toast.error("Erro ao logar. Verifique os dados preenchidos.")
+        toast.error(
+          "Erro ao logar. Senha e/ou email incorretos ou erro de conexão."
+        )
       );
   };
 
