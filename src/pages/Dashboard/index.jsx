@@ -35,7 +35,7 @@ function Dashboard({ authenticated, setAuthenticated }) {
       .then((response) => {
         setTasks(response.data.techs);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => "Erro de conexão.");
   };
 
   useEffect(() => loadTasks(), []);
@@ -66,8 +66,8 @@ function Dashboard({ authenticated, setAuthenticated }) {
           },
         }
       )
-      .then((response) => setTasks([...tasks, response]), loadTasks())
-      .catch((err) => console.log(err));
+      .then((response) => setTasks([...tasks, response.data]))
+      .catch((err) => "Erro de conexão.");
   };
 
   if (!authenticated) {

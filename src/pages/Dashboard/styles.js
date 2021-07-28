@@ -29,6 +29,12 @@ export const Button = styled.button`
 `;
 
 export const ButtonLogout = styled.button`
-  border-radius: 1rem;
-  padding: 0.6rem;
+  color: white;
+  margin: 0 1rem;
+  padding: 0.5rem;
+
+  &:hover {
+    color: yellow;
+    text-decoration: underline;
+  }
 `;
