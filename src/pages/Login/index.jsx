@@ -30,12 +30,14 @@ function Login({ authenticated, setAuthenticated }) {
   const history2 = useHistory();
 
   const onSubmit = (data) => {
+    console.log(data);
     api
       .post("/sessions", data)
       .then((response) => {
         const { token } = response.data;
-
         localStorage.setItem("@Kenziehub:token", JSON.stringify(token));
+
+        localStorage.setItem("@Kenziehub:id", response.data.user.id);
 
         setAuthenticated(true);
 
@@ -44,9 +46,9 @@ function Login({ authenticated, setAuthenticated }) {
       .catch((err) => console.log(err));
   };
 
-  if (authenticated) {
-    return <Redirect to="/dashboard" />;
-  }
+  // if (authenticated) {
+  //   return <Redirect to="/dashboard" />;
+  // }
 
   return (
     <Container>

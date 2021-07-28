@@ -1,10 +1,19 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+export const Main = styled.main`
   text-align: center;
-  height: 100vh;
+`;
+
+export const Container = styled.form`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  text-align: center;
+`;
+
+export const Section = styled.section`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 export const Input = styled.input`
