@@ -1,15 +1,14 @@
-function Cards({ cardPlace, handleCardplace }) {
+import { Container, Button } from "./styles";
+
+function Cards({ task, deleteTask }) {
   return (
-    <ul>
-      {cardPlace &&
-        cardPlace.map((elt, index) => (
-          <li key={index}>
-            {/* <h3>{title}</h3>
-            <p>{status}</p> */}
-            <button onClick={handleCardplace(elt)}>Deletar</button>
-          </li>
-        ))}
-    </ul>
+    <Container>
+      <div key={task.id}>
+        <h3>Tecnologia: {task.title}</h3>
+        <p>Status: {task.status}</p>
+        <Button onClick={() => deleteTask(task.id)}>Deletar</Button>
+      </div>
+    </Container>
   );
 }
 
