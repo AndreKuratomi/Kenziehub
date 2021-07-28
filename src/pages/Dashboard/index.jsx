@@ -62,9 +62,9 @@ function Dashboard({ authenticated }) {
       .catch((err) => console.log(err));
   };
 
-  // if (!authenticated) {
-  //   return <Redirect to="/login" />;
-  // }
+  if (!authenticated) {
+    return <Redirect to="/login" />;
+  }
 
   return (
     <Main>

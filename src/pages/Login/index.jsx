@@ -46,9 +46,9 @@ function Login({ authenticated, setAuthenticated }) {
       .catch((err) => console.log(err));
   };
 
-  // if (authenticated) {
-  //   return <Redirect to="/dashboard" />;
-  // }
+  if (authenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <Container>
