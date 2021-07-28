@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import api from "../../services/api";
 
 import Cards from "../../components/Cards";
 
-import { Main, Container, Input, Button, Section } from "./styles";
+import {
+  Main,
+  Container,
+  Input,
+  Button,
+  ButtonLogout,
+  Section,
+} from "./styles";
 
-function Dashboard({ authenticated }) {
+function Dashboard({ authenticated, setAuthenticated }) {
   const [tasks, setTasks] = useState([]);
   const [token] = useState(
     JSON.parse(localStorage.getItem("@Kenziehub:token")) || ""
@@ -34,14 +41,15 @@ function Dashboard({ authenticated }) {
   useEffect(() => loadTasks(), []);
 
   const deleteTask = (id) => {
-    tasks.filter((elt) => elt.id !== id);
+    const filter = tasks.filter((elt) => elt.id !== id);
+
     api
       .delete(`/users/techs/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(loadTasks());
+      .then(setTasks(filter));
   };
 
   const onSubmitFunction = ({ title, status }) => {
@@ -58,13 +66,18 @@ function Dashboard({ authenticated }) {
           },
         }
       )
-      .then(loadTasks())
+      .then((response) => setTasks([...tasks, response]), loadTasks())
       .catch((err) => console.log(err));
   };
 
   if (!authenticated) {
     return <Redirect to="/login" />;
   }
+
+  const logout = () => {
+    localStorage.clear();
+    return setAuthenticated(false);
+  };
 
   return (
     <Main>
@@ -81,6 +94,9 @@ function Dashboard({ authenticated }) {
         {tasks &&
           tasks.map((task) => <Cards task={task} deleteTask={deleteTask} />)}
       </Section>
+      <ButtonLogout onClick={logout}>
+        <Link to="/">Logout</Link>
+      </ButtonLogout>
     </Main>
   );
 }

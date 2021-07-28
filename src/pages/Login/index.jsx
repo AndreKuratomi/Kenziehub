@@ -6,7 +6,7 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 
 import api from "../../services/api";
 
-import { Container, Form, Input, Select, Div } from "./styles";
+import { Container, Form, Input, Div } from "./styles";
 import { toast } from "react-toastify";
 
 function Login({ authenticated, setAuthenticated }) {
@@ -36,8 +36,8 @@ function Login({ authenticated, setAuthenticated }) {
       .post("/sessions", data)
       .then((response) => {
         const { token } = response.data;
-        localStorage.setItem("@Kenziehub:token", JSON.stringify(token));
 
+        localStorage.setItem("@Kenziehub:token", JSON.stringify(token));
         localStorage.setItem("@Kenziehub:id", response.data.user.id);
 
         setAuthenticated(true);
