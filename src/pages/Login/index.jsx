@@ -7,6 +7,7 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 import api from "../../services/api";
 
 import { Container, Form, Input, Select, Div } from "./styles";
+import { toast } from "react-toastify";
 
 function Login({ authenticated, setAuthenticated }) {
   const formSchema = yup.object().shape({
@@ -41,14 +42,18 @@ function Login({ authenticated, setAuthenticated }) {
 
         setAuthenticated(true);
 
+        toast.success("Login feito com sucesso!");
+
         return history2.push("/dashboard");
       })
-      .catch((err) => console.log(err));
+      .catch((err) =>
+        toast.error("Erro ao logar. Verifique os dados preenchidos.")
+      );
   };
 
-  if (authenticated) {
-    return <Redirect to="/dashboard" />;
-  }
+  // if (authenticated) {
+  //   return <Redirect to="/dashboard" />;
+  // }
 
   return (
     <Container>
