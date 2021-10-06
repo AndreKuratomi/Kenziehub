@@ -46,6 +46,11 @@ export default createGlobalStyle`
     }
 
     a {
+        color: var(--white);
         text-decoration: none;
+        &:hover {
+            color: var(--yellow);
+            text-decoration: underline;
+        }
     }
 `;

@@ -6,7 +6,7 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 
 import api from "../../services/api";
 
-import { Container, Form, Input, Div } from "./styles";
+import { Container, Form, Input, Div, A } from "./styles";
 import { toast } from "react-toastify";
 
 function Login({ authenticated, setAuthenticated }) {
@@ -69,7 +69,11 @@ function Login({ authenticated, setAuthenticated }) {
       </Form>
       <p>
         Ainda não tem cadastro? Então vamos ao
-        <Link to="/signup"> Cadastro</Link>.
+        <Link to="/signup">
+          {" "}
+          <A>Cadastro</A>
+        </Link>
+        .
       </p>
     </Container>
   );

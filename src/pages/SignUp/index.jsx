@@ -6,7 +6,7 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 
 import api from "../../services/api";
 
-import { Container, Form, Input, Select, Div } from "./styles";
+import { Container, Form, Input, Select, Div, A } from "./styles";
 import { toast } from "react-toastify";
 
 function SignUp({ authenticated }) {
@@ -27,7 +27,7 @@ function SignUp({ authenticated }) {
     name: yup
       .string()
       .required("Campo obrigatório!")
-      .matches(/^[a-zA-Z]+$/, "Preencher apenas com letras!"),
+      .matches(/^[a-zA-Zà-úÀ-Ú]+$/, "Preencher apenas com letras!"),
     bio: yup.string().required("Campo obrigatório!"),
     contact: yup.string().required("Campo obrigatório!"),
     course_module: yup.string().required("Campo obrigatório!"),
@@ -100,7 +100,11 @@ function SignUp({ authenticated }) {
         <button type="submit">Submeter</button>
       </Form>
       <p>
-        Já tem cadastro? Então vamos ao <Link to="/login">Login</Link>!
+        Já tem cadastro? Então vamos ao{" "}
+        <Link to="/login">
+          <A>Login</A>
+        </Link>
+        !
       </p>
     </Container>
   );

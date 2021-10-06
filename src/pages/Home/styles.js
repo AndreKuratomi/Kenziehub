@@ -9,13 +9,7 @@ export const Container = styled.div`
   height: 100vh;
 `;
 
-export const Button1 = styled.button`
-  color: white;
+export const Button = styled.button`
   margin: 0 1rem;
   padding: 0.5rem;
-
-  &:hover {
-    color: yellow;
-    text-decoration: underline;
-  }
 `;

@@ -94,9 +94,9 @@ function Dashboard({ authenticated, setAuthenticated }) {
         {tasks &&
           tasks.map((task) => <Cards task={task} deleteTask={deleteTask} />)}
       </Section>
-      <ButtonLogout onClick={logout}>
+      <button onClick={logout}>
         <Link to="/">Logout</Link>
-      </ButtonLogout>
+      </button>
     </Main>
   );
 }
