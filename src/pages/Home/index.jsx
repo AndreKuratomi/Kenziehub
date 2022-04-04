@@ -1,6 +1,6 @@
 import { Link, Redirect } from "react-router-dom";
 
-import { Container, Button1 } from "./styles";
+import { Container, Button } from "./styles";
 
 function Home({ authenticated }) {
   if (authenticated) {
@@ -14,12 +14,12 @@ function Home({ authenticated }) {
         Organize suas tecnologias aprendidas conforme o módulo em que estiver.
       </p>
       <section>
-        <Button1>
+        <Button>
           <Link to="/signup">Cadastre-se</Link>
-        </Button1>
-        <Button1>
+        </Button>
+        <Button>
           <Link to="/login">Login</Link>
-        </Button1>
+        </Button>
       </section>
     </Container>
   );

@@ -18,6 +18,7 @@ export const Input = styled.input`
   margin-bottom: 0.5rem;
   padding: 0.5rem;
   text-align: center;
+  width: 290px;
 `;
 
 export const Select = styled.select`
@@ -29,4 +30,13 @@ export const Select = styled.select`
 export const Div = styled.div`
   color: #f00;
   margin-bottom: 0.5rem;
+  width: 290px;
+`;
+
+export const A = styled.a`
+  color: #000;
+  &:hover {
+    color: #000;
+    text-decoration: underline;
+  }
 `;
