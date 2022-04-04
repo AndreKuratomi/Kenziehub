@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+## KENZIEHUB
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Descrição](#descrição)
+- [Instalação](#instalação)
+- [Utilização](#utilização)
+- [Termos de uso](#termos-de-uso)
+- [Referências](#referências)
 
-## Available Scripts
+# Descrição
 
-In the project directory, you can run:
+<p><b>Kenziehub</b> é um hub de portfólios de programadores da Kenzie Academy Brasil. Nele, o usuário (aluno da kenzie) se cadastra, e cadastra as tecnologias que conhece. Esta aplicação utiliza React.</p>
+<br>
+Link deploy vercel:
 
-### `yarn start`
+https://2b16-entrega-kenziehub.vercel.app/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Instalação
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<h5>0. Primeiramente, é necessário já ter instalado na própria máquina:</h5>
 
-### `yarn test`
+- <p> Um <b>editor de código</b>, conhecido também como <b>IDE</b>. Por exemplo, o <b>[Visual Studio Code (VSCode)](https://code.visualstudio.com/)</b>.</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- <p> E versionar o diretório para receber o clone da aplicação:</p>
 
-### `yarn build`
+```
+git init
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h5>1. Fazer o clone do repositório <b>Kenziehub</b> na sua máquina pelo terminal do computador ou pelo do IDE:</h5>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+git clone https://github.com/AndreKuratomi/Kenziehub-.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p>Entrar na pasta criada:</p>
 
-### `yarn eject`
+```
+cd Kenziehub
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<p>Instalar as dependências:</p>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+yarn
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<p><b>Obs:</b> caso não tenha o gerenciador de pacotes <b>yarn</b> instalar desta maneira:</p>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+npm install --global yarn
+```
 
-## Learn More
+<p>E rodar a aplicação:</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+code .
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Utilização
 
-### Code Splitting
+<p>Para exibir o frontend para o usuário utlizando o VSCode utilizamos no terminal o seguinte comando:</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+yarn start
+```
 
-### Analyzing the Bundle Size
+<p>Ou podemos utilizar o link do deploy Vercel a seguir:</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+https://2b16-entrega-kenziehub.vercel.app/
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Termos de uso
 
-### Advanced Configuration
+<p>Esta aplicação atende a fins exclusivamente didáticos e não possui qualquer intuito comercial.</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+# Referências
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [API Kenziehub](https://gitlab.com/ka-br-jan-2021/game-rank-api)
 
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
