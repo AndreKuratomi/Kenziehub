@@ -4,7 +4,7 @@
 - [Instalação](#instalação)
 - [Utilização](#utilização)
 - [Termos de uso](#termos-de-uso)
-
+- [Referências](#referências)
 
 # Descrição
 
@@ -73,4 +73,8 @@ https://2b16-entrega-kenziehub.vercel.app/
 
 <p>Esta aplicação atende a fins exclusivamente didáticos e não possui qualquer intuito comercial.</p>
 
-https://gitlab.com/ka-br-jan-2021/game-rank-api
+
+# Referências
+
+- [API Kenziehub](https://gitlab.com/ka-br-jan-2021/game-rank-api)
+
